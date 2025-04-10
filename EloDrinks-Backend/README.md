@@ -1,65 +1,59 @@
-## About
+# Express API Starter with Typescript
 
-This project was created with [express-generator-typescript](https://github.com/seanpmaxwell/express-generator-typescript).
+How to use this template:
 
-**IMPORTANT** for demo purposes I had to disable `helmet` in production. In any real world app you should change these 3 lines of code in `src/server.ts`:
-```ts
-// eslint-disable-next-line n/no-process-env
-if (!process.env.DISABLE_HELMET) {
-  app.use(helmet());
-}
+```sh
+npx create-express-api --typescript --directory my-api-name
 ```
 
-To just this:
-```ts
-app.use(helmet());
+Includes API Server utilities:
+
+* [morgan](https://www.npmjs.com/package/morgan)
+  * HTTP request logger middleware for node.js
+* [helmet](https://www.npmjs.com/package/helmet)
+  * Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
+* [dotenv](https://www.npmjs.com/package/dotenv)
+  * Dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`
+* [cors](https://www.npmjs.com/package/cors)
+  * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+
+Development utilities:
+
+* [typescript](https://www.npmjs.com/package/typescript)
+  * TypeScript is a language for application-scale JavaScript.
+* [ts-node](https://www.npmjs.com/package/ts-node)
+  * TypeScript execution and REPL for node.js, with source map and native ESM support.
+* [nodemon](https://www.npmjs.com/package/nodemon)
+  * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+* [eslint](https://www.npmjs.com/package/eslint)
+  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+* [typescript-eslint](https://typescript-eslint.io/)
+  * Tooling which enables ESLint to support TypeScript.
+* [jest](https://www.npmjs.com/package/jest)
+  * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+* [supertest](https://www.npmjs.com/package/supertest)
+  * HTTP assertions made easy via superagent.
+
+## Setup
+
+```
+npm install
 ```
 
+## Lint
 
-## Available Scripts
+```
+npm run lint
+```
 
-### `npm run clean-install`
+## Test
 
-Remove the existing `node_modules/` folder, `package-lock.json`, and reinstall all library modules.
+```
+npm run test
+```
 
+## Development
 
-### `npm run dev` or `npm run dev:hot` (hot reloading)
-
-Run the server in development mode.<br/>
-
-**IMPORTANT** development mode uses `swc` for performance reasons which DOES NOT check for typescript errors. Run `npm run type-check` to check for type errors. NOTE: you should use your IDE to prevent most type errors.
-
-
-### `npm test` or `npm run test:hot` (hot reloading)
-
-Run all unit-tests.
-
-
-### `npm test -- "name of test file" (i.e. users).`
-
-Run a single unit-test.
-
-
-### `npm run lint`
-
-Check for linting errors.
-
-
-### `npm run build`
-
-Build the project for production.
-
-
-### `npm start`
-
-Run the production build (Must be built first).
-
-
-### `npm run type-check`
-
-Check for typescript errors.
-
-
-## Additional Notes
-
-- If `npm run dev` gives you issues with bcrypt on MacOS you may need to run: `npm rebuild bcrypt --build-from-source`. 
+```
+npm run dev
+```
