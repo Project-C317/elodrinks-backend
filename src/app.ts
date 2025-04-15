@@ -20,7 +20,7 @@ export class App {
 
     // Connect to MongoDB
     this.connectToDatabase();
-
+    
     // Inicializar rotas
     this.initializeRoutes();
 
@@ -66,6 +66,7 @@ export class App {
         message: 'Rota não encontrada',
       });
     });
+    
     this.app.use((error: Error, req: Request, res: Response) => {
       console.error(error);
       res.status(500).json({
@@ -80,5 +81,4 @@ export class App {
       console.log(`Servidor rodando na porta ${this.port}`);
     });
   }
-
 }
