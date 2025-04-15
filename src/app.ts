@@ -1,7 +1,7 @@
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
-import mongoose from 'mongoose';
+import mongoose  from 'mongoose';
 import dotenv from 'dotenv';
 import express, { Application, Request, Response } from 'express';
 import { config } from 'dotenv';
@@ -18,6 +18,9 @@ export class App {
     // Inicializar configurações
     this.initializeConfig();
 
+    // Connect to MongoDB
+    this.connectToDatabase();
+
     // Inicializar rotas
     this.initializeRoutes();
 
@@ -29,6 +32,23 @@ export class App {
     config();
   }
 
+  private async connectToDatabase(): Promise<void> {
+    const mongoURI = process.env.MONGO_URI as string;
+  
+    if (!mongoURI) {
+      console.error('❌ MONGO_URI is not defined in .env');
+      process.exit(1);
+    }
+  
+    try {
+      await mongoose.connect(mongoURI);
+      console.log('✅ MongoDB connected');
+    } catch (err) {
+      console.error('❌ Error connecting to MongoDB:', err);
+      process.exit(1); // exit app if connection fails
+    }
+  }
+  
   private initializeRoutes(): void {
     this.app.get('/', (req: Request, res: Response) => {
       res.status(200).json({
@@ -60,4 +80,5 @@ export class App {
       console.log(`Servidor rodando na porta ${this.port}`);
     });
   }
+
 }
