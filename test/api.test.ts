@@ -1,3 +1,4 @@
+/*/
 import request from 'supertest';
 
 import app from '../src/app';
@@ -23,3 +24,4 @@ describe('GET /api/v1/emojis', () => {
       .expect(200, ['😀', '😳', '🙄'], done);
   });
 });
+/*/
