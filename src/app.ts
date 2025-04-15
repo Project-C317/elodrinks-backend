@@ -46,7 +46,6 @@ export class App {
         message: 'Rota não encontrada',
       });
     });
-
     this.app.use((error: Error, req: Request, res: Response) => {
       console.error(error);
       res.status(500).json({
