@@ -1,10 +1,4 @@
-import morgan from 'morgan';
-import helmet from 'helmet';
-import cors from 'cors';
-import mongoose  from 'mongoose';
-import dotenv from 'dotenv';
 import express, { Application, Request, Response } from 'express';
-import { config } from 'dotenv';
 
 export class App {
   public app: Application;
@@ -17,9 +11,6 @@ export class App {
 
     // Inicializar configurações
     this.initializeConfig();
-
-    // Connect to MongoDB
-    this.connectToDatabase();
     
     // Inicializar rotas
     this.initializeRoutes();
@@ -29,24 +20,8 @@ export class App {
   }
 
   private initializeConfig(): void {
-    config();
-  }
-
-  private async connectToDatabase(): Promise<void> {
-    const mongoURI = process.env.MONGO_URI as string;
-  
-    if (!mongoURI) {
-      console.error('❌ MONGO_URI is not defined in .env');
-      process.exit(1);
-    }
-  
-    try {
-      await mongoose.connect(mongoURI);
-      console.log('✅ MongoDB connected');
-    } catch (err) {
-      console.error('❌ Error connecting to MongoDB:', err);
-      process.exit(1); // exit app if connection fails
-    }
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
   }
   
   private initializeRoutes(): void {
