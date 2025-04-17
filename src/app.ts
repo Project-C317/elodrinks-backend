@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from 'express';
+import { SwaggerConfig } from './docs/swagger';
 
 export class App {
   public app: Application;
@@ -11,6 +12,9 @@ export class App {
 
     // Inicializar configurações
     this.initializeConfig();
+
+    // Configurar Swagger
+    this.configureSwagger();
     
     // Inicializar rotas
     this.initializeRoutes();
@@ -22,6 +26,11 @@ export class App {
   private initializeConfig(): void {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+  }
+
+  private configureSwagger(): void {
+    const swaggerConfig = new SwaggerConfig(this.app);
+    swaggerConfig.setupSwagger();
   }
   
   private initializeRoutes(): void {
