@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import { SwaggerConfig } from './docs/swagger';
+import userRouter from './Routes/UserRoutes';
 
 export class App {
   public app: Application;
@@ -9,6 +10,7 @@ export class App {
   constructor(port: number) {
     this.app = express();
     this.port = port;
+    this.app.use(express.json());
 
     // Inicializar configurações
     this.initializeConfig();
@@ -41,6 +43,7 @@ export class App {
         timestamp: new Date(),
       });
     });
+    this.app.use('/users', userRouter);
   }
 
   private initializeErrorHandling(): void {
