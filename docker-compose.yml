@@ -1,8 +1,7 @@
-version: '3.8'
-
 services:
   mongodb:
-    image: mongo:latest
+    image: mongo:6.0
+    platform: linux/amd64
     container_name: mongodb
     ports:
       - "27017:27017"  # Exposes MongoDB on port 27017
