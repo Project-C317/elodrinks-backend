@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { OptionalItem } from './OptionalItem';
+import { OptionalItemSchema } from './OptionalItem';
 
 const ServiceSchema = new mongoose.Schema({
   Id: { type: String, required: true },
@@ -9,7 +9,7 @@ const ServiceSchema = new mongoose.Schema({
   ClientQuantity: { type: Number, required: true },
   EventDuration: { type: Number, required: true },
   EventDate: { type: Date, required: true },
-  optionalItems: { type: [OptionalItem], default: [] },
+  optionalItems: { type: [OptionalItemSchema], default: [] },
   FinalBudget: { type: Number, required: true },
   DownPayment: { type: Number, required: true },
   FinalPayment: { type: Number, required: true },
