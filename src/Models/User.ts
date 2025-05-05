@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema<IUser>({
   Age: { type: Number, required: true },
   Cpf: { type: String, required: true, unique: true },
   Email: { type: String, required: true, unique: true },
-  Phone: { type: String, required: true }
+  Phone: { type: String, required: true },
 });
 
 // Create the model

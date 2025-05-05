@@ -28,7 +28,7 @@ class UserService {
   // Fetch a user by ID
   async getUserById(id: string): Promise<IUser | null> {
     try {
-      const user = await UserModel.findById(id)
+      const user = await UserModel.findById(id);
       return user;
     } catch (error) {
       if (error instanceof Error) {
