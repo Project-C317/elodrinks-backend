@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import { SwaggerConfig } from './docs/swagger';
 import userRouter from './Routes/UserRoutes';
+import serviceRouter from './Routes/ServiceRoutes';
 
 export class App {
   public app: Application;
@@ -44,6 +45,7 @@ export class App {
       });
     });
     this.app.use('/users', userRouter);
+    this.app.use('/services', serviceRouter);
   }
 
   private initializeErrorHandling(): void {
