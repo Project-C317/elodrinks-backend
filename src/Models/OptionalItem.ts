@@ -8,7 +8,7 @@ export interface IOptionalItem extends Document {
   IndividualPrice: number;
 }
 
-const OptionalItemSchema: Schema = new Schema<IOptionalItem>({
+export const OptionalItemSchema: Schema = new Schema<IOptionalItem>({
   Id: { type: String, required: true },
   Name: { type: String, required: true },
   PricePerUnit: { type: Number, required: true },
