@@ -45,7 +45,7 @@
 					"response": []
 				},
 				{
-					"name": "PostUser",
+					"name": "CreateUser",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -121,13 +121,13 @@
 			"name": "ServiceTests",
 			"item": [
 				{
-					"name": "PostService",
+					"name": "CreateService",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Id\": \"1\",\r\n  \"Name\": \"Serviço de Casamento\",\r\n  \"BasePrice\": 1500,\r\n  \"CostPerClient\": 200,\r\n  \"ClientQuantity\": 100,\r\n  \"EventDuration\": 6,\r\n  \"EventDate\": \"2025-06-15T15:00:00.000Z\",\r\n  \"optionalItems\": [\r\n    {\r\n      \"Id\": \"1\",\r\n      \"Name\": \"Decoração Premium\",\r\n      \"PricePerUnit\": 500,\r\n      \"Quantity\": 2,\r\n      \"IndividualPrice\": 1000\r\n    },\r\n    {\r\n      \"Id\": \"2\",\r\n      \"Name\": \"Barman extra\",\r\n      \"PricePerUnit\": 300,\r\n      \"Quantity\": 1,\r\n      \"IndividualPrice\": 300\r\n    }\r\n  ],\r\n  \"FinalBudget\": 5000,\r\n  \"DownPayment\": 1500,\r\n  \"FinalPayment\": 3500\r\n}\r\n",
+							"raw": "{\r\n  \"Name\": \"Serviço de Casamento\",\r\n  \"BasePrice\": 10500,\r\n  \"CostPerClient\": 200,\r\n  \"ClientQuantity\": 100,\r\n  \"EventDuration\": 6,\r\n  \"EventDate\": \"2025-06-15T15:00:00.000Z\",\r\n  \"optionalItems\": [],\r\n  \"FinalBudget\": 5000,\r\n  \"DownPayment\": 1500,\r\n  \"FinalPayment\": 3500\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -169,13 +169,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/services/6818a31f2567632c88545158",
+							"raw": "{{base_url}}/services/681a8fe7770a8bce25feacdb",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"services",
-								"6818a31f2567632c88545158"
+								"681a8fe7770a8bce25feacdb"
 							]
 						}
 					},
@@ -188,7 +188,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Id\": \"1\",\r\n  \"Name\": \"Serviço de Casamento\",\r\n  \"BasePrice\": 1500,\r\n  \"CostPerClient\": 200,\r\n  \"ClientQuantity\": 100,\r\n  \"EventDuration\": 8,\r\n  \"EventDate\": \"2025-06-15T15:00:00.000Z\",\r\n  \"optionalItems\": [\r\n    {\r\n      \"Id\": \"1\",\r\n      \"Name\": \"Decoração Premium\",\r\n      \"PricePerUnit\": 500,\r\n      \"Quantity\": 2,\r\n      \"IndividualPrice\": 1000\r\n    },\r\n    {\r\n      \"Id\": \"2\",\r\n      \"Name\": \"Barman extra\",\r\n      \"PricePerUnit\": 300,\r\n      \"Quantity\": 3,\r\n      \"IndividualPrice\": 300\r\n    }\r\n  ],\r\n  \"FinalBudget\": 5000,\r\n  \"DownPayment\": 1500,\r\n  \"FinalPayment\": 3500\r\n}\r\n",
+							"raw": "{\r\n    \"_id\": \"681a8fe7770a8bce25feacdb\",\r\n    \"Name\": \"Serviço de Casamento\",\r\n    \"BasePrice\": 12500,\r\n    \"CostPerClient\": 200,\r\n    \"ClientQuantity\": 100,\r\n    \"EventDuration\": 6,\r\n    \"EventDate\": \"2025-06-15T15:00:00.000Z\",\r\n    \"optionalItems\": [],\r\n    \"FinalBudget\": 5000,\r\n    \"DownPayment\": 1500,\r\n    \"FinalPayment\": 3500\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -196,13 +196,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/services/6818a31f2567632c88545158",
+							"raw": "{{base_url}}/services/681a8fe7770a8bce25feacdb",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"services",
-								"6818a31f2567632c88545158"
+								"681a8fe7770a8bce25feacdb"
 							]
 						}
 					},
@@ -214,13 +214,124 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/services/6818a31f2567632c88545158",
+							"raw": "{{base_url}}/services/681a8b338fb8570a4dfd2b45",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"services",
-								"6818a31f2567632c88545158"
+								"681a8b338fb8570a4dfd2b45"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OptionalItemTests",
+			"item": [
+				{
+					"name": "CreateOptionalItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Decoração Premium\",\r\n  \"PricePerUnit\": 150,\r\n  \"Quantity\": 1,\r\n  \"IndividualPrice\": 300\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/optional-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListOptionalItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/optional-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOptionalItemById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/optional-items/681a9069770a8bce25feace1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items",
+								"681a9069770a8bce25feace1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateOptionalItemById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Mesa de Drinks Premium\",\r\n    \"PricePerUnit\": 150,\r\n    \"Quantity\": 5,\r\n    \"IndividualPrice\": 300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/optional-items/681a9069770a8bce25feace1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items",
+								"681a9069770a8bce25feace1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOptionalItemById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/optional-items/681a8ada8fb8570a4dfd2b42",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items",
+								"681a8ada8fb8570a4dfd2b42"
 							]
 						}
 					},
