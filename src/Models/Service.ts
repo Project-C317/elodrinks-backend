@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import { OptionalItemSchema } from './OptionalItem';
 
 const ServiceSchema = new mongoose.Schema({
-  Id: { type: String, required: true },
   Name: { type: String, required: true },
   BasePrice: { type: Number, required: true },
   CostPerClient: { type: Number, required: true },
