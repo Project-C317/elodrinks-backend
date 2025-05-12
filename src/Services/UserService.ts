@@ -1,4 +1,6 @@
 import { UserModel, IUser } from '../Models/User';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 interface CreateUserDTO {
   Name: string;
@@ -7,20 +9,21 @@ interface CreateUserDTO {
   Cpf: string;
   Email: string;
   Phone: string;
+  Password: string;
 }
 
 class UserService {
+  private SECRET_KEY = process.env.SECRET_KEY || 'your_secret_key'; // Secret key for JWT
+
   // Fetch all users
   async getAllUsers(): Promise<IUser[]> {
     try {
-      const users = await UserModel.find(); // Fetch all users (returns IUser[])
-      return users; // No TypeScript error now
+      const users = await UserModel.find(); // Fetch all users
+      return users;
     } catch (error) {
       if (error instanceof Error) {
-        // This ensures that we access the message of the Error instance
         throw new Error(`Failed to fetch users: ${error.message}`);
       }
-      // If the error is not an instance of Error (it could be an unknown object), handle accordingly
       throw new Error('Failed to fetch users: An unknown error occurred.');
     }
   }
@@ -32,25 +35,28 @@ class UserService {
       return user;
     } catch (error) {
       if (error instanceof Error) {
-        // Safely access the error message
         throw new Error(`Failed to fetch user by ID: ${error.message}`);
       }
       throw new Error('Failed to fetch user by ID: An unknown error occurred.');
     }
   }
 
-  // Create a new user
+  // Create a new user (including hashed password)
   async createUser(data: CreateUserDTO): Promise<IUser> {
     try {
-      const newUser = new UserModel(data); // Create a new user instance
-      const savedUser = await newUser.save(); // Save the user to the database (returns IUser)
-      return savedUser; // Return the saved user document
+      // Check if the user already exists
+      const existingUser = await UserModel.findOne({ Email: data.Email });
+      if (existingUser) {
+        throw new Error('Email is already registered');
+      }
+
+      const newUser = new UserModel(data);
+      const savedUser = await newUser.save();
+      return savedUser;
     } catch (error) {
       if (error instanceof Error) {
-        // Safely access the error message
         throw new Error(`Failed to save user: ${error.message}`);
       }
-      // If the error is not an instance of Error (unknown error object)
       throw new Error('Failed to save user: An unknown error occurred.');
     }
   }
@@ -58,11 +64,10 @@ class UserService {
   // Update a user by ID
   async updateUserById(id: string, updates: Partial<CreateUserDTO>): Promise<IUser | null> {
     try {
-      const updatedUser = await UserModel.findByIdAndUpdate(id, updates);
+      const updatedUser = await UserModel.findByIdAndUpdate(id, updates, { new: true });
       return updatedUser;
     } catch (error) {
       if (error instanceof Error) {
-        // Safely access the error message
         throw new Error(`Failed to update user: ${error.message}`);
       }
       throw new Error('Failed to update user: An unknown error occurred.');
@@ -72,14 +77,46 @@ class UserService {
   // Delete a user by ID
   async deleteUserById(id: string): Promise<boolean> {
     try {
-      const result = await UserModel.findByIdAndDelete(id); // Use MongoDB's `_id`
+      const result = await UserModel.findByIdAndDelete(id);
       return result !== null;
     } catch (error) {
       if (error instanceof Error) {
-        // Safely access the error message
         throw new Error(`Failed to delete user: ${error.message}`);
       }
       throw new Error('Failed to delete user: An unknown error occurred.');
+    }
+  }
+
+  // Log in the user and generate a JWT token
+  async loginUser(email: string, password: string): Promise<string> {
+    try {
+      // Find user by email
+      const user = await UserModel.findOne({ Email: email });
+      if (!user) {
+        throw new Error('Invalid email or password');
+      }
+
+      // Compare password with hashed password
+      const isPasswordValid = await user.comparePassword(password);
+      if (!isPasswordValid) {
+        throw new Error('Invalid email or password');
+      }
+
+      // Generate JWT token
+      const token = jwt.sign({ id: user._id, email: user.Email }, this.SECRET_KEY, { expiresIn: '1h' });
+      return token;
+    } catch (error) {
+      throw new Error(`Login failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
+  // Verify JWT token (optional, can also be done in middleware)
+  async verifyToken(token: string): Promise<any> {
+    try {
+      const decoded = jwt.verify(token, this.SECRET_KEY);
+      return decoded;
+    } catch (error) {
+      throw new Error('Invalid or expired token');
     }
   }
 }

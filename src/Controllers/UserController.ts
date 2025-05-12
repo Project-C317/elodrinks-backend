@@ -4,6 +4,7 @@ import UserService from '../Services/UserService';
 class UserController {
   constructor(private userService: UserService) {}
 
+  // Fetch all users
   async getAllUsers(req: Request, res: Response): Promise<void> {
     try {
       const users = await this.userService.getAllUsers();
@@ -13,9 +14,10 @@ class UserController {
     }
   }
 
-  async createUser(req: Request, res: Response): Promise<void> {
+  // Create a new user (register)
+  async registerUser(req: Request, res: Response): Promise<void> {
     try {
-      const { Name, Surname, Age, Cpf, Email, Phone } = req.body;
+      const { Name, Surname, Age, Cpf, Email, Phone, Password } = req.body;
       const newUser = await this.userService.createUser({
         Name,
         Surname,
@@ -23,10 +25,25 @@ class UserController {
         Cpf,
         Email,
         Phone,
+        Password,
       });
-      res.status(201).json(newUser);
+      res.status(201).json({
+        message: 'User registered successfully',
+        user: newUser,
+      });
     } catch (error) {
-      res.status(500).json({ error: (error instanceof Error) ? error.message : 'Failed to create user' });
+      res.status(500).json({ error: (error instanceof Error) ? error.message : 'Failed to register user' });
+    }
+  }
+
+  // Log in a user
+  async loginUser(req: Request, res: Response): Promise<void> {
+    try {
+      const { Email, Password } = req.body;
+      const token = await this.userService.loginUser(Email, Password);
+      res.status(200).json({ message: 'Login successful', token });
+    } catch (error) {
+      res.status(400).json({ error: (error instanceof Error) ? error.message : 'Invalid credentials' });
     }
   }
 
@@ -64,7 +81,7 @@ class UserController {
   // Delete a user by ID
   async deleteUserById(req: Request, res: Response): Promise<void> {
     try {
-      const { id } = req.params; // Extract the `_id` from the request parameters
+      const { id } = req.params;
       const wasDeleted = await this.userService.deleteUserById(id);
       if (wasDeleted) {
         res.status(200).json({ message: 'User deleted successfully' });
