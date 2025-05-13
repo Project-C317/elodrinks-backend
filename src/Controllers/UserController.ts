@@ -17,7 +17,7 @@ class UserController {
   // Create a new user (register)
   async registerUser(req: Request, res: Response): Promise<void> {
     try {
-      const { Name, Surname, Age, Cpf, Email, Phone, Password } = req.body;
+      const { Name, Surname, Age, Cpf, Email, Phone, Password, Role = 'user' } = req.body;
       const newUser = await this.userService.createUser({
         Name,
         Surname,
@@ -26,6 +26,7 @@ class UserController {
         Email,
         Phone,
         Password,
+        Role,
       });
       res.status(201).json({
         message: 'User registered successfully',
