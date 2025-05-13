@@ -9,6 +9,7 @@ export interface IUser extends Document {
   Email: string;
   Phone: string;
   Password: string;
+  Role: string; 
   comparePassword: (candidatePassword: string) => Promise<boolean>; // Method to compare passwords
 }
 
@@ -20,6 +21,7 @@ const UserSchema = new Schema<IUser>({
   Email: { type: String, required: true, unique: true },
   Phone: { type: String, required: true },
   Password: { type: String, required: true }, // Add Password field
+  Role: { type: String, enum: ['user', 'admin'], default: 'user' },
 });
 
 // Pre-save hook to hash the password
