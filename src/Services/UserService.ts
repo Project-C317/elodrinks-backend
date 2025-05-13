@@ -1,5 +1,4 @@
 import { UserModel, IUser } from '../Models/User';
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 interface CreateUserDTO {
@@ -10,6 +9,7 @@ interface CreateUserDTO {
   Email: string;
   Phone: string;
   Password: string;
+  Role?: string;
 }
 
 class UserService {
@@ -103,7 +103,7 @@ class UserService {
       }
 
       // Generate JWT token
-      const token = jwt.sign({ id: user._id, email: user.Email }, this.SECRET_KEY, { expiresIn: '1h' });
+      const token = jwt.sign({ id: user._id, email: user.Email, role: user.Role }, this.SECRET_KEY, { expiresIn: '1h' });
       return token;
     } catch (error) {
       throw new Error(`Login failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
