@@ -11,9 +11,31 @@
 			"item": [
 				{
 					"name": "ListUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjMzNjJjZGU5MThiZTUxNjQ0YWJhMiIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ3MTM4MTk4LCJleHAiOjE3NDcxNDE3OTh9.MdM8B4f5z2Mv8dalUMc3MMjiNc6aslhYDjy1BjXV-Ho",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{base_url}}/users",
 							"host": [
@@ -29,42 +51,26 @@
 				{
 					"name": "GetUserById",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjMyYjIwZjlkMWQ4NjM5ZDBmMWQ4MiIsImVtYWlsIjoiYW5pbmhhQGVtYWlsLmNvbSIsImlhdCI6MTc0NzEzNjM5NywiZXhwIjoxNzQ3MTM5OTk3fQ.nTLGVaiXQWPFteI8QbdRprNkDTn7qTkrYw5pAaiT0tk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/users/681267c6dc9f91b3396dab38",
+							"raw": "{{base_url}}/users/68233542de918be51644ab99",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"681267c6dc9f91b3396dab38"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CreateUser",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"Name\": \"John\",\n  \"Surname\": \"Doe\",\n  \"Age\": 30,\n  \"Cpf\": \"123.456.789-00\",\n  \"Email\": \"john.doe@example.com\",\n  \"Phone\": \"+1-234-567-8901\"\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/users",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"users"
+								"68233542de918be51644ab99"
 							]
 						}
 					},
@@ -110,6 +116,114 @@
 							"path": [
 								"users",
 								"68126bfa1eaa6b8074d75ad1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Email\": \"aninha@email.com\",\r\n  \"Password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Aninha2\",\r\n  \"Surname\": \"Santos\",\r\n  \"Age\": 30,\r\n  \"Cpf\": \"12345678901\",\r\n  \"Email\": \"aninha2@email.com\",\r\n  \"Phone\": \"99988-7766\",\r\n  \"Password\": \"123456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Admin\",\r\n  \"Surname\": \"Test\",\r\n  \"Age\": 30,\r\n  \"Cpf\": \"12345678902\",\r\n  \"Email\": \"admin@email.com\",\r\n  \"Phone\": \"99999-9999\",\r\n  \"Password\": \"admin123\",\r\n  \"Role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Email\": \"admin@email.com\",\r\n  \"Password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"login"
 							]
 						}
 					},
