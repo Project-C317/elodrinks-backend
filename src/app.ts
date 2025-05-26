@@ -70,6 +70,7 @@ export class App {
   public listen(): void {
     this.app.listen(this.port, () => {
       console.log(`Servidor rodando na porta ${this.port}`);
+      console.log(`Documentação Swagger disponível em http://localhost:${this.port}/api-docs`);
     });
   }
 }
