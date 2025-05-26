@@ -25,7 +25,7 @@ export class SwaggerConfig {
           },
         ],
       },
-      apis: ['./src/routes/*.ts', './src/models/*.ts'],
+      apis: ['./src/docs/*.ts'],
     };
 
     const swaggerDocs = swaggerJSDoc(swaggerOptions);
