@@ -3,6 +3,7 @@ import { SwaggerConfig } from './docs/swagger';
 import userRouter from './Routes/UserRoutes';
 import serviceRouter from './Routes/ServiceRoutes';
 import optionalRouter from './Routes/OptionalRoutes';
+import cors from 'cors';
 
 export class App {
   public app: Application;
@@ -28,6 +29,12 @@ export class App {
   }
 
   private initializeConfig(): void {
+    // Configuração CORS para permitir requisição do frontend 
+    this.app.use(cors({
+      origin: 'http://localhost:5173', // URL do frontend
+      credentials: true,
+    }));
+
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
   }
@@ -50,6 +57,8 @@ export class App {
     this.app.use('/optional-items', optionalRouter);
   }
 
+
+
   private initializeErrorHandling(): void {
     this.app.use((req: Request, res: Response) => {
       res.status(404).json({
@@ -70,6 +79,7 @@ export class App {
   public listen(): void {
     this.app.listen(this.port, () => {
       console.log(`Servidor rodando na porta ${this.port}`);
+      console.log(`Documentação Swagger disponível em http://localhost:${this.port}/api-docs`);
     });
   }
 }
