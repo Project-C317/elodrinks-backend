@@ -31,7 +31,7 @@ export class App {
   private initializeConfig(): void {
     // Configuração CORS para permitir requisição do frontend 
     this.app.use(cors({
-      origin: 'http://localhost:3000', // URL do frontend
+      origin: 'http://localhost:5173', // URL do frontend
       credentials: true,
     }));
 
