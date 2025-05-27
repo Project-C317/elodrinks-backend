@@ -7,10 +7,13 @@ import { DatabaseConnection } from './database/DataConnection';
 async function bootstrap() {
   const PORT = parseInt(process.env.PORT || '3000', 10);
 
-  const database = new DatabaseConnection();
-  await database.connect();
-
   console.log('Starting server on port:', PORT);
+
+  const database = new DatabaseConnection();
+
+  console.log(database);
+
+  await database.connect();
 
   const app = new App(PORT);
   app.listen();
