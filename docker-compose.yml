@@ -1,0 +1,20 @@
+services:
+  mongodb:
+    image: mongo:6.0
+    platform: linux/amd64
+    container_name: mongodb
+    ports:
+      - "27017:27017"  # Exposes MongoDB on port 27017
+    volumes:
+      - mongodb_data:/data/db  # Persists data across container restarts
+    networks:
+      - app-network
+    restart: always
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

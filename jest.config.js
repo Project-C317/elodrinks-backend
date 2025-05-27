@@ -9,7 +9,9 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,ts}',
     '!src/**/*.d.ts',
-    '!src/index.ts',
+    '!src/database/**/*',
+    '!src/docs/**/*',
+    '!src/Models/**/*',
     '!**/node_modules/**',
   ],
 };

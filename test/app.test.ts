@@ -1,25 +1,19 @@
 import request from 'supertest';
+import { App } from '../src/app';
 
-import app from '../src/app';
+describe('Rota inicial da API - GET /', () => {
+  let appInstance: App;
 
-describe('app', () => {
-  it('responds with a not found message', (done) => {
-    request(app)
-      .get('/what-is-this-even')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(404, done);
+  beforeAll(() => {
+    appInstance = new App(3000);
   });
-});
 
-describe('GET /', () => {
-  it('responds with a json message', (done) => {
-    request(app)
-      .get('/')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, {
-        message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄',
-      }, done);
+  it('Teste: deve retornar status 200 e uma mensagem de sucesso', async () => {
+    const response = await request(appInstance.app).get('/');
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('status', 'success');
+    expect(response.body).toHaveProperty('message', 'Servidor está rodando');
+    expect(response.body).toHaveProperty('timestamp');
   });
 });

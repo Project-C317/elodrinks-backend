@@ -1,30 +1,75 @@
-import express from 'express';
-import morgan from 'morgan';
-import helmet from 'helmet';
-import cors from 'cors';
+import express, { Application, Request, Response } from 'express';
+import { SwaggerConfig } from './docs/swagger';
+import userRouter from './Routes/UserRoutes';
+import serviceRouter from './Routes/ServiceRoutes';
+import optionalRouter from './Routes/OptionalRoutes';
 
-import * as middlewares from './middlewares';
-import api from './api';
-import MessageResponse from './interfaces/MessageResponse';
+export class App {
+  public app: Application;
 
-require('dotenv').config();
+  public port: number;
 
-const app = express();
+  constructor(port: number) {
+    this.app = express();
+    this.port = port;
+    this.app.use(express.json());
 
-app.use(morgan('dev'));
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
+    // Inicializar configurações
+    this.initializeConfig();
 
-app.get<{}, MessageResponse>('/', (req, res) => {
-  res.json({
-    message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄',
-  });
-});
+    // Configurar Swagger
+    this.configureSwagger();
+    
+    // Inicializar rotas
+    this.initializeRoutes();
 
-app.use('/api/v1', api);
+    // Inicializar tratamento de erros
+    this.initializeErrorHandling();
+  }
 
-app.use(middlewares.notFound);
-app.use(middlewares.errorHandler);
+  private initializeConfig(): void {
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
+  }
 
-export default app;
+  private configureSwagger(): void {
+    const swaggerConfig = new SwaggerConfig(this.app);
+    swaggerConfig.setupSwagger();
+  }
+  
+  private initializeRoutes(): void {
+    this.app.get('/', (req: Request, res: Response) => {
+      res.status(200).json({
+        status: 'success',
+        message: 'Servidor está rodando',
+        timestamp: new Date(),
+      });
+    });
+    this.app.use('/users', userRouter);
+    this.app.use('/services', serviceRouter);
+    this.app.use('/optional-items', optionalRouter);
+  }
+
+  private initializeErrorHandling(): void {
+    this.app.use((req: Request, res: Response) => {
+      res.status(404).json({
+        status: 'error',
+        message: 'Rota não encontrada',
+      });
+    });
+    
+    this.app.use((error: Error, req: Request, res: Response) => {
+      console.error(error);
+      res.status(500).json({
+        status: 'error',
+        message: error.message || 'Erro Interno do Servidor',
+      });
+    });
+  }
+
+  public listen(): void {
+    this.app.listen(this.port, () => {
+      console.log(`Servidor rodando na porta ${this.port}`);
+    });
+  }
+}

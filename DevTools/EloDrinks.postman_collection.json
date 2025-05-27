@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "5e0aa2b9-9feb-4a6b-a418-4231b3857a5f",
+		"name": "EloDrinks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37727279"
+	},
+	"item": [
+		{
+			"name": "UserTests",
+			"item": [
+				{
+					"name": "ListUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjMzNjJjZGU5MThiZTUxNjQ0YWJhMiIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ3MTM4MTk4LCJleHAiOjE3NDcxNDE3OTh9.MdM8B4f5z2Mv8dalUMc3MMjiNc6aslhYDjy1BjXV-Ho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjMyYjIwZjlkMWQ4NjM5ZDBmMWQ4MiIsImVtYWlsIjoiYW5pbmhhQGVtYWlsLmNvbSIsImlhdCI6MTc0NzEzNjM5NywiZXhwIjoxNzQ3MTM5OTk3fQ.nTLGVaiXQWPFteI8QbdRprNkDTn7qTkrYw5pAaiT0tk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/68233542de918be51644ab99",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"68233542de918be51644ab99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/68126bfa1eaa6b8074d75ad1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"68126bfa1eaa6b8074d75ad1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"jofrey\",\n  \"Surname\": \"dont\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/68126bfa1eaa6b8074d75ad1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"68126bfa1eaa6b8074d75ad1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Email\": \"aninha@email.com\",\r\n  \"Password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Aninha2\",\r\n  \"Surname\": \"Santos\",\r\n  \"Age\": 30,\r\n  \"Cpf\": \"12345678901\",\r\n  \"Email\": \"aninha2@email.com\",\r\n  \"Phone\": \"99988-7766\",\r\n  \"Password\": \"123456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Admin\",\r\n  \"Surname\": \"Test\",\r\n  \"Age\": 30,\r\n  \"Cpf\": \"12345678902\",\r\n  \"Email\": \"admin@email.com\",\r\n  \"Phone\": \"99999-9999\",\r\n  \"Password\": \"admin123\",\r\n  \"Role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Email\": \"admin@email.com\",\r\n  \"Password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ServiceTests",
+			"item": [
+				{
+					"name": "CreateService",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Serviço de Casamento\",\r\n  \"BasePrice\": 10500,\r\n  \"CostPerClient\": 200,\r\n  \"ClientQuantity\": 100,\r\n  \"EventDuration\": 6,\r\n  \"EventDate\": \"2025-06-15T15:00:00.000Z\",\r\n  \"optionalItems\": [],\r\n  \"FinalBudget\": 5000,\r\n  \"DownPayment\": 1500,\r\n  \"FinalPayment\": 3500\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/services",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListServices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/services",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetServiceById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/services/681a8fe7770a8bce25feacdb",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"services",
+								"681a8fe7770a8bce25feacdb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateServiceById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"681a8fe7770a8bce25feacdb\",\r\n    \"Name\": \"Serviço de Casamento\",\r\n    \"BasePrice\": 12500,\r\n    \"CostPerClient\": 200,\r\n    \"ClientQuantity\": 100,\r\n    \"EventDuration\": 6,\r\n    \"EventDate\": \"2025-06-15T15:00:00.000Z\",\r\n    \"optionalItems\": [],\r\n    \"FinalBudget\": 5000,\r\n    \"DownPayment\": 1500,\r\n    \"FinalPayment\": 3500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/services/681a8fe7770a8bce25feacdb",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"services",
+								"681a8fe7770a8bce25feacdb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteServiceById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/services/681a8b338fb8570a4dfd2b45",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"services",
+								"681a8b338fb8570a4dfd2b45"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OptionalItemTests",
+			"item": [
+				{
+					"name": "CreateOptionalItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Decoração Premium\",\r\n  \"PricePerUnit\": 150,\r\n  \"Quantity\": 1,\r\n  \"IndividualPrice\": 300\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/optional-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListOptionalItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/optional-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOptionalItemById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/optional-items/681a9069770a8bce25feace1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items",
+								"681a9069770a8bce25feace1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateOptionalItemById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Mesa de Drinks Premium\",\r\n    \"PricePerUnit\": 150,\r\n    \"Quantity\": 5,\r\n    \"IndividualPrice\": 300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/optional-items/681a9069770a8bce25feace1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items",
+								"681a9069770a8bce25feace1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOptionalItemById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/optional-items/681a8ada8fb8570a4dfd2b42",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"optional-items",
+								"681a8ada8fb8570a4dfd2b42"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
