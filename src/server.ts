@@ -10,6 +10,8 @@ async function bootstrap() {
   const database = new DatabaseConnection();
   await database.connect();
 
+  console.log('Starting server on port:', PORT);
+
   const app = new App(PORT);
   app.listen();
 }
