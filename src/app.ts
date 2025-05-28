@@ -32,9 +32,9 @@ export class App {
     // Configuração CORS para permitir requisição do frontend 
     this.app.use(cors({
       origin: [
-      'http://localhost:5173',           // Local
-      'https://elodrinks.netlify.app'    // Produção
-    ],
+        'http://localhost:5173',           // Local
+        'https://elodrinks.netlify.app',    // Produção
+      ],
       credentials: true,
     }));
 
