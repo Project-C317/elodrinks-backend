@@ -25,6 +25,9 @@
  *         IndividualPrice:
  *           type: number
  *           example: 300
+ *         Category:
+ *           type: string
+ *           example: "Decoração"
  */
 
 /**
@@ -57,6 +60,7 @@
  *                 PricePerUnit: 150
  *                 Quantity: 1
  *                 IndividualPrice: 300
+ *                 Category: "Decoração"
  *       500:
  *         description: Erro interno ao buscar os itens opcionais
  *         content:
@@ -84,6 +88,7 @@
  *             PricePerUnit: 150
  *             Quantity: 1
  *             IndividualPrice: 300
+ *             Category: "Decoração"
  *     responses:
  *       201:
  *         description: Item opcional criado com sucesso
@@ -97,6 +102,7 @@
  *               PricePerUnit: 150
  *               Quantity: 1
  *               IndividualPrice: 300
+ *               Category: "Decoração"
  *       500:
  *         description: Erro interno ao criar o item opcional
  *         content:
@@ -137,6 +143,7 @@
  *               PricePerUnit: 150
  *               Quantity: 1
  *               IndividualPrice: 300
+ *               Category: "Decoração"
  *       404:
  *         description: Item opcional não encontrado
  *         content:
@@ -181,6 +188,7 @@
  *             PricePerUnit: 200
  *             Quantity: 2
  *             IndividualPrice: 400
+ *             Category: "Decoração"
  *     responses:
  *       200:
  *         description: Item opcional atualizado com sucesso
@@ -194,6 +202,7 @@
  *               PricePerUnit: 200
  *               Quantity: 2
  *               IndividualPrice: 400
+ *               Category: "Decoração"
  *       404:
  *         description: Item opcional não encontrado ou não pôde ser atualizado
  *         content:
