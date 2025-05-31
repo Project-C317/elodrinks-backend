@@ -6,6 +6,7 @@ interface CreateOptionalItemDTO {
   PricePerUnit: number;
   Quantity: number;
   IndividualPrice: number;
+  Category: string; 
 }
 
 class OptionalService {
