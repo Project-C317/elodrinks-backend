@@ -17,7 +17,7 @@ class OptionalController {
   // Criar novo item opcional
   async createOptionalItem(req: Request, res: Response): Promise<void> {
     try {
-      const { Id, Name, PricePerUnit, Quantity, IndividualPrice } = req.body;
+      const { Id, Name, PricePerUnit, Quantity, IndividualPrice, Category } = req.body;
 
       const newItem = await this.optionalService.createOption({
         Id,
@@ -25,6 +25,7 @@ class OptionalController {
         PricePerUnit,
         Quantity,
         IndividualPrice,
+        Category,
       });
 
       res.status(201).json(newItem);

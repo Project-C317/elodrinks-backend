@@ -5,6 +5,7 @@ export interface IOptionalItem extends Document {
   PricePerUnit: number;
   Quantity: number;
   IndividualPrice: number;
+  Category: string; 
 }
 
 export const OptionalItemSchema: Schema = new Schema<IOptionalItem>({
@@ -12,6 +13,7 @@ export const OptionalItemSchema: Schema = new Schema<IOptionalItem>({
   PricePerUnit: { type: Number, required: true },
   Quantity: { type: Number, required: true },
   IndividualPrice: { type: Number, required: true },
+  Category: { type: String, required: true },
 });
 
 export const OptionalItem = mongoose.model<IOptionalItem>('OptionalItem', OptionalItemSchema);
