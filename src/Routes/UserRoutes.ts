@@ -14,8 +14,8 @@ userRouter.post('/login', (req, res) => userController.loginUser(req, res)); // 
 
 // Rotas privadas (precisa autenticar)
 userRouter.get('/', authenticateToken, authorizeRole(['admin']), (req, res) => userController.getAllUsers(req, res)); // GET /users
-userRouter.get('/:id', authenticateToken, (req, res) => userController.getUserById(req, res)); // GET /users/:id
-userRouter.put('/:id', authenticateToken, (req, res) => userController.updateUserById(req, res)); // PUT /users/:id
+userRouter.get('/:id', authenticateToken, authorizeRole(['admin']), (req, res) => userController.getUserById(req, res)); // GET /users/:id
+userRouter.put('/:id', authenticateToken, authorizeRole(['admin', 'user']), (req, res) => userController.updateUserById(req, res)); // PUT /users/:id
 userRouter.delete('/:id', authenticateToken, authorizeRole(['admin']), (req, res) => userController.deleteUserById(req, res)); // DELETE /users/:id
 
 export default userRouter;
