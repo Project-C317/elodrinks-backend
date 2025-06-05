@@ -30,7 +30,7 @@ jobs:
           name: build-artifacts
           path: dist/
 
-  test:
+  jest-tests:
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -53,4 +53,37 @@ jobs:
         with:
           name: tests-report
           path: coverage/
+  
+  postman-tests:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      - name: Run Postman collection tests with Newman
+        run: |
+          npx newman run DevTools/EloDrinks.postman_collection.json \
+            -e DevTools/elodrinks.postman_environment.json \
+            --reporters cli,json,htmlextra,junit \
+            --reporter-json-export reports/postman-report.json \
+            --reporter-htmlextra-export reports/postman-report.html \
+            --reporter-junit-export reports/postman-report.xml
+
+      - name: Upload Postman test reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: postman-test-report
+          path: reports/
 
