@@ -14,6 +14,7 @@ module.exports = {
     '!src/docs/**/*',
     '!src/Middleware/**/*',
     '!src/Models/**/*',
+    '!src/Routes/**/*',
     '!src/Services/**/*',
     '!src/server.ts',
   ],
