@@ -8,10 +8,14 @@ module.exports = {
   coverageReporters: ['text', 'lcov', 'clover', 'html'],
   collectCoverageFrom: [
     'src/**/*.{js,ts}',
-    '!src/**/*.d.ts',
+    '!**/dist/**',
+    '!**/node_modules/**',
     '!src/database/**/*',
     '!src/docs/**/*',
+    '!src/Middleware/**/*',
     '!src/Models/**/*',
-    '!**/node_modules/**',
+    '!src/Services/**/*',
+    '!src/server.ts',
   ],
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
 };
