@@ -11,6 +11,28 @@
 			"item": [
 				{
 					"name": "ListUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -20,7 +42,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjMzNjJjZGU5MThiZTUxNjQ0YWJhMiIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ3MTM4MTk4LCJleHAiOjE3NDcxNDE3OTh9.MdM8B4f5z2Mv8dalUMc3MMjiNc6aslhYDjy1BjXV-Ho",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
 									"type": "string"
 								}
 							]
@@ -50,6 +72,28 @@
 				},
 				{
 					"name": "GetUserById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -78,7 +122,43 @@
 				},
 				{
 					"name": "DeleteUserById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404 (deleted resource)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -96,7 +176,39 @@
 				},
 				{
 					"name": "UpdateUserById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -109,13 +221,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/users/68126bfa1eaa6b8074d75ad1",
+							"raw": "{{base_url}}/users/6835fe049b0c36820db9ec4e",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"68126bfa1eaa6b8074d75ad1"
+								"6835fe049b0c36820db9ec4e"
 							]
 						}
 					},
@@ -123,12 +235,30 @@
 				},
 				{
 					"name": "LoginUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code === 200).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Email\": \"aninha@email.com\",\r\n  \"Password\": \"123456\"\r\n}",
+							"raw": "{\r\n  \"Email\": \"testedeploy@email.com\",\r\n  \"Password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -149,40 +279,35 @@
 					"response": []
 				},
 				{
-					"name": "RegisterUser",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Aninha2\",\r\n  \"Surname\": \"Santos\",\r\n  \"Age\": 30,\r\n  \"Cpf\": \"12345678901\",\r\n  \"Email\": \"aninha2@email.com\",\r\n  \"Phone\": \"99988-7766\",\r\n  \"Password\": \"123456\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/users/register",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"users",
-								"register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "RegisterAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 500 (duplicated)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Admin\",\r\n  \"Surname\": \"Test\",\r\n  \"Age\": 30,\r\n  \"Cpf\": \"12345678902\",\r\n  \"Email\": \"admin@email.com\",\r\n  \"Phone\": \"99999-9999\",\r\n  \"Password\": \"admin123\",\r\n  \"Role\": \"admin\"\r\n}",
+							"raw": "{\r\n  \"Name\": \"Test-postman\",\r\n  \"Surname\": \"Test-postman\",\r\n  \"Age\": 30,\r\n  \"Cpf\": \"12345634442\",\r\n  \"Email\": \"adminpostman@email.com\",\r\n  \"Phone\": \"99999-9999\",\r\n  \"Password\": \"admin123\",\r\n  \"Role\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -204,6 +329,24 @@
 				},
 				{
 					"name": "LoginAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code === 200).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -228,6 +371,55 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "RegisterUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 500 (duplicated)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"testes_postman\",\r\n  \"Surname\": \"testes_postman\",\r\n  \"Age\": 45,\r\n  \"Cpf\": \"12345678933\",\r\n  \"Email\": \"testes_postman@email.com\",\r\n  \"Phone\": \"99988-7732\",\r\n  \"Password\": \"123456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -236,7 +428,39 @@
 			"item": [
 				{
 					"name": "CreateService",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -262,7 +486,39 @@
 				},
 				{
 					"name": "ListServices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -279,17 +535,49 @@
 				},
 				{
 					"name": "GetServiceById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/services/681a8fe7770a8bce25feacdb",
+							"raw": "{{base_url}}/services/6836502693f8001a5d9f29a4",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"services",
-								"681a8fe7770a8bce25feacdb"
+								"6836502693f8001a5d9f29a4"
 							]
 						}
 					},
@@ -297,12 +585,44 @@
 				},
 				{
 					"name": "UpdateServiceById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_id\": \"681a8fe7770a8bce25feacdb\",\r\n    \"Name\": \"Serviço de Casamento\",\r\n    \"BasePrice\": 12500,\r\n    \"CostPerClient\": 200,\r\n    \"ClientQuantity\": 100,\r\n    \"EventDuration\": 6,\r\n    \"EventDate\": \"2025-06-15T15:00:00.000Z\",\r\n    \"optionalItems\": [],\r\n    \"FinalBudget\": 5000,\r\n    \"DownPayment\": 1500,\r\n    \"FinalPayment\": 3500\r\n}",
+							"raw": "{\r\n    \"Name\": \"Serviço de Casamento\",\r\n    \"BasePrice\": 12500,\r\n    \"CostPerClient\": 200,\r\n    \"ClientQuantity\": 100,\r\n    \"EventDuration\": 6,\r\n    \"EventDate\": \"2025-06-15T15:00:00.000Z\",\r\n    \"optionalItems\": [],\r\n    \"FinalBudget\": 5000,\r\n    \"DownPayment\": 1500,\r\n    \"FinalPayment\": 3500\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -310,13 +630,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/services/681a8fe7770a8bce25feacdb",
+							"raw": "{{base_url}}/services/6836502693f8001a5d9f29a4",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"services",
-								"681a8fe7770a8bce25feacdb"
+								"6836502693f8001a5d9f29a4"
 							]
 						}
 					},
@@ -324,7 +644,43 @@
 				},
 				{
 					"name": "DeleteServiceById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404 (deleted resource)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -347,12 +703,44 @@
 			"item": [
 				{
 					"name": "CreateOptionalItem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 201\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Decoração Premium\",\r\n  \"PricePerUnit\": 150,\r\n  \"Quantity\": 1,\r\n  \"IndividualPrice\": 300\r\n}\r\n",
+							"raw": "{\r\n  \"Name\": \"Decoração Premium 02\",\r\n  \"PricePerUnit\": 150,\r\n  \"Quantity\": 1,\r\n  \"IndividualPrice\": 300,\r\n  \"Category\": \"Decoração\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -373,7 +761,39 @@
 				},
 				{
 					"name": "ListOptionalItems",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -390,17 +810,49 @@
 				},
 				{
 					"name": "GetOptionalItemById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/optional-items/681a9069770a8bce25feace1",
+							"raw": "{{base_url}}/optional-items/6839a484a7b3c9fdf5047668",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"optional-items",
-								"681a9069770a8bce25feace1"
+								"6839a484a7b3c9fdf5047668"
 							]
 						}
 					},
@@ -408,12 +860,44 @@
 				},
 				{
 					"name": "UpdateOptionalItemById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Name\": \"Mesa de Drinks Premium\",\r\n    \"PricePerUnit\": 150,\r\n    \"Quantity\": 5,\r\n    \"IndividualPrice\": 300\r\n}",
+							"raw": "{\r\n    \"Name\": \"Mojito\",\r\n    \"PricePerUnit\": 150,\r\n    \"Quantity\": 5,\r\n    \"IndividualPrice\": 300\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -421,13 +905,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/optional-items/681a9069770a8bce25feace1",
+							"raw": "{{base_url}}/optional-items/684223a6569eff77f4affb5b",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"optional-items",
-								"681a9069770a8bce25feace1"
+								"684223a6569eff77f4affb5b"
 							]
 						}
 					},
@@ -435,7 +919,43 @@
 				},
 				{
 					"name": "DeleteOptionalItemById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403 (expired token)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(403);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404 (deleted resource)\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDIxNDFkNTY5ZWZmNzdmNGFmZmFmYyIsImVtYWlsIjoiYWRtaW5AZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MTYzOTU4LCJleHAiOjE3NDkxNjc1NTh9.jrooQPJYO23ad1oi6jUwXqYguorrFLC0ZzYk51Ai3SQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
