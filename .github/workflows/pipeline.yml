@@ -2,7 +2,7 @@ name: Pipeline elodrinks-backend
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, develop-tests]
   pull_request:
     branches: [main, develop]
 
