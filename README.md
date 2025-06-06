@@ -6,11 +6,12 @@
 
 <img src="https://github.com/user-attachments/assets/6a081363-3f84-4186-8797-a4f70d0de46f" alt="EloDrinks Banner" width="700" height="350" style="object-fit: cover; border-radius: 8px;">
 
-[![Live Demo](https://img.shields.io/badge/_Live_Demo-Visit_Site-success?style=for-the-badge&logo=netlify)](https://elodrinks.netlify.app)
-[![API Status](https://img.shields.io/badge/_API-Online-brightgreen?style=for-the-badge&logo=render)](https://elodrinks-backend.onrender.com)
-[![GitHub Org](https://img.shields.io/badge/_Organization-Project--C317-blue?style=for-the-badge&logo=github)](https://github.com/Project-C317)
+[![Live Demo](https://img.shields.io/badge/_Live_Demo-Visit_Site-success?style=flat&logo=netlify)](https://elodrinks.netlify.app)
+[![API Status](https://img.shields.io/badge/_API-Online-brightgreen?style=flat&logo=render)](https://elodrinks-backend.onrender.com)
+[![GitHub Org](https://img.shields.io/badge/_Organization-Project--C317-blue?style=flat&logo=github)](https://github.com/Project-C317)
+[![CICD](https://github.com/Project-C317/elodrinks-backend/actions/workflows/pipeline.yml/badge.svg)](https://github.com/Project-C317/elodrinks-backend/actions/workflows/pipeline.yml)
 
-<div>
+</div>
 
 </br>
 
@@ -19,7 +20,7 @@
 Nosso backend é estruturado como um microserviço de API, oferecendo operações clássicas de CRUD para diversos tipos de dados. Isso permite que o frontend realize uma variedade de ações, como a criação e autenticação de usuários e administradores.
 
 Administradores têm acesso a funcionalidades avançadas, podendo criar novos serviços, adicionar itens opcionais e gerenciar usuários. Já os usuários podem montar seus próprios orçamentos personalizados de forma prática e eficiente.
-
+  
 </br>
 
 ## 🔸 Arquitetura do Sistema e Stacks
@@ -29,11 +30,16 @@ Administradores têm acesso a funcionalidades avançadas, podendo criar novos se
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) 
 ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express) 
+[![API Documentation](https://img.shields.io/badge/📚_API_Docs-Explorar-4ECDC4?style=for-the-badge&logo=render&logoColor=white)](https://elodrinks-backend.onrender.com)
+
+---
 
 **Desenvolvimento do banco de dados com MongoDB e Docker**
 
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+---
 
 **Nossa Stack de testes e QA com testes de integração e testes unitários**
 
@@ -43,7 +49,7 @@ Administradores têm acesso a funcionalidades avançadas, podendo criar novos se
 🧩 **Repositório** [Project-C317/elodrinks-backend](https://github.com/Project-C317/elodrinks-backend)  
 🔗 **Produção:** [elodrinks-backend.onrender.com](https://elodrinks-backend.onrender.com)
 
-[![API Documentation](https://img.shields.io/badge/📚_API_Docs-Explorar-4ECDC4?style=for-the-badge&logo=render&logoColor=white)](https://elodrinks-backend.onrender.com)
+---
 
 ### Deployment & Tools 
 
