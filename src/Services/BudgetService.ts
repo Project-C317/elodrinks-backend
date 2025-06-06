@@ -1,9 +1,10 @@
 import { Budget } from "../Models/Budget";
 
 interface CreateBudgetDTO {
-	Id: string;
 	Name: string;
-	Total: number;	
+	Total: number;
+	Service: string;
+	OptionalItems?: any[]; 	
 }
 
 class BudgetService {
@@ -21,7 +22,7 @@ class BudgetService {
 	}
 
 	// Criar nova budget
-	async createOption(data: CreateBudgetDTO): Promise<any> {
+	async createBudget(data: CreateBudgetDTO): Promise<any> {
 		try {
 			const newBudget = new Budget(data);
 			const savedBudget = await newBudget.save();
@@ -47,3 +48,5 @@ class BudgetService {
 		}
 	  }
 }
+
+export default BudgetService;

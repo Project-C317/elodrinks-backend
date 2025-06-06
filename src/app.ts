@@ -3,6 +3,7 @@ import { SwaggerConfig } from './docs/swagger';
 import userRouter from './Routes/UserRoutes';
 import serviceRouter from './Routes/ServiceRoutes';
 import optionalRouter from './Routes/OptionalRoutes';
+import budgetRouter from './Routes/BudgetRoutes';
 import cors from 'cors';
 
 export class App {
@@ -58,6 +59,7 @@ export class App {
     this.app.use('/users', userRouter);
     this.app.use('/services', serviceRouter);
     this.app.use('/optional-items', optionalRouter);
+    this.app.use('/budget', budgetRouter)
   }
 
 
