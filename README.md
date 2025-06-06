@@ -30,7 +30,7 @@ Administradores têm acesso a funcionalidades avançadas, podendo criar novos se
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) 
 ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express) 
-[![API Documentation](https://img.shields.io/badge/📚_API_Docs-Explorar-4ECDC4?style=for-the-badge&logo=render&logoColor=white)](https://elodrinks-backend.onrender.com)
+[![API Documentation](https://img.shields.io/badge/📚_API_Docs-Explorar-4ECDC4?style=for-the-badge&logo=render&logoColor=white)](https://elodrinks-backend.onrender.com/api-docs)
 
 ---
 
@@ -51,7 +51,7 @@ Administradores têm acesso a funcionalidades avançadas, podendo criar novos se
 
 ---
 
-### Deployment & Tools 
+## 🔸 Deployment & Tools 
 
 **Utilização do Render para deploy, MongoDB Atlas para banco de Produção e Git com GitHub para controle de versão e colaboração**
 
