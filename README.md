@@ -49,7 +49,7 @@ Administradores têm acesso a funcionalidades avançadas, podendo criar novos se
 🧩 **Repositório** [Project-C317/elodrinks-backend](https://github.com/Project-C317/elodrinks-backend)  
 🔗 **Produção:** [elodrinks-backend.onrender.com](https://elodrinks-backend.onrender.com)
 
----
+</br>
 
 ## 🔸 Deployment & Tools 
 
