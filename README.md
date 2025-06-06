@@ -1,59 +1,72 @@
-# Express API Starter with Typescript
+<div align="center">
 
-How to use this template:
+# Project-C317-Backend | EloDrinks 🥂
 
-```sh
-npx create-express-api --typescript --directory my-api-name
-```
+*Sistema para gerenciamento de orçamentos e serviços no setor de eventos*
 
-Includes API Server utilities:
+<img src="https://github.com/user-attachments/assets/6a081363-3f84-4186-8797-a4f70d0de46f" alt="EloDrinks Banner" width="700" height="350" style="object-fit: cover; border-radius: 8px;">
 
-* [morgan](https://www.npmjs.com/package/morgan)
-  * HTTP request logger middleware for node.js
-* [helmet](https://www.npmjs.com/package/helmet)
-  * Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
-* [dotenv](https://www.npmjs.com/package/dotenv)
-  * Dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`
-* [cors](https://www.npmjs.com/package/cors)
-  * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+[![Live Demo](https://img.shields.io/badge/_Live_Demo-Visit_Site-success?style=for-the-badge&logo=netlify)](https://elodrinks.netlify.app)
+[![API Status](https://img.shields.io/badge/_API-Online-brightgreen?style=for-the-badge&logo=render)](https://elodrinks-backend.onrender.com)
+[![GitHub Org](https://img.shields.io/badge/_Organization-Project--C317-blue?style=for-the-badge&logo=github)](https://github.com/Project-C317)
 
-Development utilities:
+<div>
 
-* [typescript](https://www.npmjs.com/package/typescript)
-  * TypeScript is a language for application-scale JavaScript.
-* [ts-node](https://www.npmjs.com/package/ts-node)
-  * TypeScript execution and REPL for node.js, with source map and native ESM support.
-* [nodemon](https://www.npmjs.com/package/nodemon)
-  * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
-* [eslint](https://www.npmjs.com/package/eslint)
-  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-* [typescript-eslint](https://typescript-eslint.io/)
-  * Tooling which enables ESLint to support TypeScript.
-* [jest](https://www.npmjs.com/package/jest)
-  * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
-* [supertest](https://www.npmjs.com/package/supertest)
-  * HTTP assertions made easy via superagent.
+</br>
 
-## Setup
+## 🔸 Sobre o Backend
 
-```
-npm install
-```
+Nosso backend é estruturado como um microserviço de API, oferecendo operações clássicas de CRUD para diversos tipos de dados. Isso permite que o frontend realize uma variedade de ações, como a criação e autenticação de usuários e administradores.
 
-## Lint
+Administradores têm acesso a funcionalidades avançadas, podendo criar novos serviços, adicionar itens opcionais e gerenciar usuários. Já os usuários podem montar seus próprios orçamentos personalizados de forma prática e eficiente.
 
-```
-npm run lint
-```
+</br>
 
-## Test
+## 🔸 Arquitetura do Sistema e Stacks
 
-```
-npm run test
-```
+**API REST construída em Node.js e TypeScript** 
 
-## Development
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) 
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) 
+![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express) 
 
-```
-npm run dev
-```
+**Desenvolvimento do banco de dados com MongoDB e Docker**
+
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+**Nossa Stack de testes e QA com testes de integração e testes unitários**
+
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+
+🧩 **Repositório** [Project-C317/elodrinks-backend](https://github.com/Project-C317/elodrinks-backend)  
+🔗 **Produção:** [elodrinks-backend.onrender.com](https://elodrinks-backend.onrender.com)
+
+[![API Documentation](https://img.shields.io/badge/📚_API_Docs-Explorar-4ECDC4?style=for-the-badge&logo=render&logoColor=white)](https://elodrinks-backend.onrender.com)
+
+### Deployment & Tools 
+
+**Utilização do Render para deploy, MongoDB Atlas para banco de Produção e Git com GitHub para controle de versão e colaboração**
+
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
+![MongoDB Atlas](https://img.shields.io/badge/MongoDB_Atlas-4F8CC9?style=for-the-badge&logo=mongodb&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) 
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+
+</br>
+
+## 💻 Equipe de Desenvolvimento
+
+<div align="center">
+
+| Desenvolvedor | GitHub | Especialidade |
+|:-------------:|:------:|:-------------:|
+| **Humberto G.** | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white)](https://github.com/humbertogfs55) | Backend Development |
+| **Iza Lopes** | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white)](https://github.com/Izalp) | Backend Development |
+
+</div>
+
+</br>
+
+>  Desenvolvido com ❤️ pela equipe Project-C317
