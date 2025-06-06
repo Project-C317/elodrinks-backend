@@ -24,8 +24,6 @@ Administradores têm acesso a funcionalidades avançadas, podendo criar novos se
 
 ## 🔸 Arquitetura do Sistema e Stacks
 
-### Backend 
-
 **API REST construída em Node.js e TypeScript** 
 
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) 
